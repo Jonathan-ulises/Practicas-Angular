@@ -5,5 +5,14 @@ import { Component } from '@angular/core';
     templateUrl: 'heroe.component.html',
 })
 export class HeroComponent {
-    
+    nombre: string = 'Ironman';
+    edad: number = 45;
+
+    get nombreCaptitalizado() : string{
+        return this.nombre.toUpperCase();
+    }
+
+    obtenerNombre() : string {
+        return `${this.nombre} - ${this.edad}`
+    }
 }
