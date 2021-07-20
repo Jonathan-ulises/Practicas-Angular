@@ -11,13 +11,7 @@ export class ListadoComponent {
   heroeBorrado: string = "";
 
   borrarElemento(): void {
-    if (this.heroes.length != 0) {
-      console.log("Borrando.....");
       this.heroeBorrado = this.heroes.pop() || '';
-    } else {
-      console.log("Lista limpia");
-      this.heroeBorrado = "Sin heroes";
-    }
   }
 
 }
