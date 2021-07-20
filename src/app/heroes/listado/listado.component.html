@@ -4,9 +4,13 @@
 Si el valor del NGFOR es '' || false || null || undefined , este ngFor
 sera false
  -->
-<div *ngIf="heroeBorrado">
+<div *ngIf="heroeBorrado; else noBorrado">
     <h3>Heroe borrado: <small>{{heroeBorrado}}</small></h3>
 </div>
+
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
 
 <button (click)="borrarElemento();">Borrar</button>
 
