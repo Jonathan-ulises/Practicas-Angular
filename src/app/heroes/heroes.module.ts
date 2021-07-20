@@ -15,6 +15,7 @@ import { ListadoComponent } from './listado/listado.component';
     ] ,
     //Importacion de Modulos
     imports: [
+        //Ofrece el acceso a directivas de Angular
         CommonModule
     ]
 })
