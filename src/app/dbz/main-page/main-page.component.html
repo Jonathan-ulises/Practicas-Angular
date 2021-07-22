@@ -3,7 +3,12 @@
 
 <div class="row">
     <div class="col">
-        <app-personajes></app-personajes>
+
+        <!-- Para mandar valores al input del algun componente, aremos referencia a su nombre o propiedad
+        escribiendo esta propiedad con corchetes '[data]' y se le asignara el valor que sera enviado al componente
+        'personajes' -->
+        <app-personajes [data]="personajes">
+        </app-personajes>
     </div>
     <div class="col">
         <h3>Agregar</h3>

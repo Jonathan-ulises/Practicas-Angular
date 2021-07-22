@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import { Personajes } from '../interfaces/dbz.intarface';
 
-interface Personajes {
-  nombre: string;
-  poder : number;
-}
 
 @Component({
   selector: 'app-main-page',
