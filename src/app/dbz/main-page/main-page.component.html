@@ -14,9 +14,34 @@
     <div class="col">
         <h3>Agregar</h3>
         <hr>
-        <form>
-            <input type="text" placeholder="Nombre">
-            <input type="number" placeholder="Poder">
+        <!-- Este ngSubmit nos ayuda para que no se refresque
+        la pagina con el Submit. -->
+        <form (ngSubmit)="agregar()">
+            <!-- el atributo "value" esta encerrado en corchetes por que
+            el valor que se le asigne dependera del valor de una propiedad
+            definida en el .component.ts -->
+            <!-- 
+                Forma para tener definido un valor en el input y capturar el evento
+                de cambio de contenido de ese input
+                <input 
+                type="text" 
+                placeholder="Nombre"
+                [value]="nuevo.nombre"
+                (input)="cambiarNombre( $event )"/> -->
+
+            <!-- Uso del Two Way DataBinding-->
+            <input 
+                type="text" 
+                placeholder="Nombre"
+                name="nombre"
+                [(ngModel)]="nuevo.nombre"/>
+
+            <input 
+                type="number" 
+                placeholder="Poder"
+                name="poder"
+                [(ngModel)]="nuevo.poder">
+
             <button>Agregar</button>
         </form>
     </div>

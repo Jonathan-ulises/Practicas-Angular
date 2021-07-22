@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+interface Personajes {
+  nombre: string;
+  poder : number;
+}
 
 @Component({
   selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  templateUrl: './main-page.component.html'
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent{
 
-  constructor() { }
-
-  ngOnInit(): void {
+  nuevo: Personajes = {
+    nombre: 'Trucks',
+    poder: 14000
   }
 
+  agregar(): void {
+    console.log(this.nuevo);
+  }
+  
+  cambiarNombre( event: any ) {
+    console.log(event.target.value);
+  }
 }
