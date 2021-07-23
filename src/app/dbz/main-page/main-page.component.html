@@ -8,12 +8,15 @@
         escribiendo esta propiedad con corchetes '[data]' y se le asignara el valor que sera enviado al componente
         'personajes' -->
         <app-personajes 
-            [data]="personajes"
-        ></app-personajes>
+            [data]="personajes"></app-personajes>
     </div>
     <div class="col">
+
+        <!-- Con el EventEmitter se crean eventos para enviar datos, asi que para usar esos eventos, simplemente
+        los llamamos como cualquier otro (por ejemplo '(clicl)'). En la llamada al evento necitamos una funcion que capture los datos
+        del evento (parametro $event). Como el eventEmmiter es de tipo Personajes, el $event es del mismo tipo. -->
         <app-agregar 
-            [dataP]="personajes"
-            [dataNP]="nuevo"></app-agregar>
+            [dataNP]="nuevo"
+            (onNuevoPersonaje)="agregarNuevoPersonaje( $event )"></app-agregar>
     </div>
 </div>

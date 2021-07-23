@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Personajes } from '../interfaces/dbz.intarface';
 
 @Component({
@@ -8,13 +8,25 @@ import { Personajes } from '../interfaces/dbz.intarface';
 })
 export class AgregarComponent {
 
-  @Input('dataP') personajes: Personajes[] = []
 
   @Input('dataNP') nuevo: Personajes = {
     nombre: '',
     poder: 0
   }
 
+  /*
+   Salida de informacion con el EventEmitter. Este crea eventos para enviar informacion
+   entre componentes. Al eventEmitter se le configura el tipo de datos que enviar al momento
+   de llamar el evento. El nombre de este evento es personalizado, puede ser cualquiera que
+   queramos, pero se puede iniciar con el prefijo 'on'. La informacion a enviar se Emite al
+   momento de ejecutar el evento.
+   */
+  @Output() onNuevoPersonaje: EventEmitter<Personajes> = new EventEmitter();
+
+  /**
+   * Agrega nuevos Personajes (los emite)
+   * @returns No devuelve valor
+   */
   agregar(): void {
     //Verifica que esta vacio
     if(this.nuevo.nombre.trim().length === 0){
@@ -23,15 +35,14 @@ export class AgregarComponent {
       
     }
 
-    console.log(this.nuevo)
-    
-    this.personajes.push( this.nuevo );
+    //Asignacion del valor de informacion a emitir (enviar)
+    this,this.onNuevoPersonaje.emit(this.nuevo);
 
     this.nuevo = {
       nombre: '',
       poder: 0
     }
-    
+  
   }
 
 }
