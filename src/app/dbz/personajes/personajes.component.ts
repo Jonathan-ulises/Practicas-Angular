@@ -14,7 +14,10 @@ export class PersonajesComponent {
   la que vamos a asinarle valores; si no tiene nombre, haremos referencia al input con el nombre de la
   propiedad
   */
-  @Input('data') personajes: Personajes[] = [];
+  //@Input('data') personajes: Personajes[] = [];
+  get personajes(): Personajes[] {
+    return this.dbzServices.getPersonajes;
+  }
 
   constructor(
     private dbzServices: DbzService

@@ -1,6 +1,9 @@
 <h3>Personajes</h3>
 <hr>
 <ul>
+    <!-- Para mostrar los datos del arreglo de personajes
+    Ahora el ngFor tiene como objeto iterable el metodo de personajes,
+    esto ya que el devuelve la lista de tipo personajes -->
     <li *ngFor="let personaje of personajes">
         {{personaje.nombre}} - {{personaje.poder | number }}
     </li>

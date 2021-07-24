@@ -7,35 +7,30 @@ import { DbzService } from '../services/dbz.service';
   selector: 'app-main-page',
   templateUrl: './main-page.component.html'
 })
-export class MainPageComponent{
+export class MainPageComponent {
 
-  personajes: Personajes[] = [
-    {
-      nombre: 'Goku',
-      poder: 15000
-    },
-    {
-      nombre: 'Vegeta',
-      poder: 7500
-    }
-  ];
+  //personajes: Personajes[] = [];
 
+  constructor(
+  ) {
+    //this.personajes = this.dbzServices.personajes;
+  }
 
-   nuevo: Personajes = {
+  // get personajes(): Personajes[] {
+  //   return this.dbzServices.personajes;
+  // }
+
+  nuevo: Personajes = {
     nombre: 'Personaje DBZ',
     poder: 9000
   }
 
-  //Metodo para capturar los datos del evento creado (evenEmitter)
-  agregarNuevoPersonaje( argumento: Personajes){
-    //Debugear con el navegador.
-    //debugger;
-    this.personajes.push( argumento );
-  }
+  // //Metodo para capturar los datos del evento creado (evenEmitter)
+  // agregarNuevoPersonaje(argumento: Personajes) {
+  //   //Debugear con el navegador.
+  //   //debugger;
+  //   this.personajes.push(argumento);
+  // }
 
-  constructor(
-    private dbzServices: DbzService
-  ){
 
-  }
 }
