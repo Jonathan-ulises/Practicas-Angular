@@ -27,6 +27,8 @@ export class MainPageComponent{
 
   //Metodo para capturar los datos del evento creado (evenEmitter)
   agregarNuevoPersonaje( argumento: Personajes){
+    //Debugear con el navegador.
+    //debugger;
     this.personajes.push( argumento );
   }
 
