@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Personajes } from '../interfaces/dbz.intarface';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-agregar',
@@ -14,14 +15,9 @@ export class AgregarComponent {
     poder: 0
   }
 
-  /*
-   Salida de informacion con el EventEmitter. Este crea eventos para enviar informacion
-   entre componentes. Al eventEmitter se le configura el tipo de datos que enviar al momento
-   de llamar el evento. El nombre de este evento es personalizado, puede ser cualquiera que
-   queramos, pero se puede iniciar con el prefijo 'on'. La informacion a enviar se Emite al
-   momento de ejecutar el evento.
-   */
-  @Output() onNuevoPersonaje: EventEmitter<Personajes> = new EventEmitter();
+  constructor( private dbzService: DbzService) {
+    
+  }
 
   /**
    * Agrega nuevos Personajes (los emite)
@@ -31,12 +27,9 @@ export class AgregarComponent {
     //Verifica que esta vacio
     if(this.nuevo.nombre.trim().length === 0){
       return;
-    } else {
-      
-    }
+    } 
 
-    //Asignacion del valor de informacion a emitir (enviar)
-    this,this.onNuevoPersonaje.emit(this.nuevo);
+    this.dbzService.agregarPersonaje( this.nuevo );
 
     this.nuevo = {
       nombre: '',
